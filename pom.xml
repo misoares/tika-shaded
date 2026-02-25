@@ -3,10 +3,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.frutico.shaded</groupId>
+  <groupId>io.github.misoares.shaded</groupId>
   <artifactId>tika3-pdfbox3-shaded</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
+  <name>tika3-pdfbox3-shaded</name>
+  <description>Apache Tika 3 packaged with relocated PDFBox 3 classes to avoid classpath conflicts with PDFBox 2.</description>
+  <url>https://github.com/frutico/tika3-pdfbox3-shaded</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Miguel</name>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/frutico/tika3-pdfbox3-shaded.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/frutico/tika3-pdfbox3-shaded.git</developerConnection>
+    <url>https://github.com/frutico/tika3-pdfbox3-shaded</url>
+  </scm>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
@@ -79,6 +102,56 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.7.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.2.7</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.10.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <autoPublish>false</autoPublish>
+        </configuration>
       </plugin>
     </plugins>
   </build>
