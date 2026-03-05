@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.misoares.shaded</groupId>
-  <artifactId>tika3-pdfbox3-shaded</artifactId>
+  <artifactId>tika-shaded</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
-  <name>tika3-pdfbox3-shaded</name>
+  <name>tika-shaded</name>
   <description>Apache Tika 3 packaged with relocated PDFBox 3 classes to avoid classpath conflicts with PDFBox 2.</description>
-  <url>https://github.com/frutico/tika3-pdfbox3-shaded</url>
+  <url>https://github.com/misoares/tika-shaded</url>
 
   <licenses>
     <license>
@@ -26,18 +26,10 @@
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/frutico/tika3-pdfbox3-shaded.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/frutico/tika3-pdfbox3-shaded.git</developerConnection>
-    <url>https://github.com/frutico/tika3-pdfbox3-shaded</url>
+    <connection>scm:git:https://github.com/misoares/tika-shaded.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/misoares/tika-shaded.git</developerConnection>
+    <url>https://github.com/misoares/tika-shaded</url>
   </scm>
-
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/frutico/tika3-pdfbox3-shaded</url>
-    </repository>
-  </distributionManagement>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
@@ -158,7 +150,7 @@
         <extensions>true</extensions>
         <configuration>
           <publishingServerId>central</publishingServerId>
-          <autoPublish>false</autoPublish>
+          <autoPublish>true</autoPublish>
         </configuration>
       </plugin>
     </plugins>
